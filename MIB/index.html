@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIB // Classified Agency Portal</title>
+  <meta name="description" content="A classified digital experience within the Men in Black headquarters. Relive the mystery, technology, and alien threat control.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Outfit:wght@100;300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css">
+  
+  <!-- tracking.js Face Detection -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/data/face-min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Cursor & Scanner Reticle -->
+  <div id="custom-cursor">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-scanner-line"></div>
+    <div class="cursor-radar-wave"></div>
+  </div>
+
+  <!-- Ambient Audio / Glitch Overlays -->
+  <div id="ambient-overlay">
+    <div class="laser-scanner-line"></div>
+    <div class="digital-vignette"></div>
+  </div>
+
+  <!-- Neuralyzer Flash Effect -->
+  <div id="neuralyzer-flash"></div>
+
+  <!-- Loading Terminal / Biometric Decryption -->
+  <div id="loader" class="loader-terminal">
+    <div class="terminal-container">
+      <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">MIB_SECURE_BOOT_v2.09</span>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="terminal-line"><span class="t-cyan">></span> INITIATING QUANTUM ENCRYPTION...</div>
+        <div class="terminal-line"><span class="t-cyan">></span> RETRIEVING ORBITAL LINK... CONNECTED</div>
+        <div class="terminal-line"><span class="t-cyan">></span> ACQUIRING BIOMETRIC TELEMETRY...</div>
+      </div>
+      
+      <!-- DNA verification pulse animation -->
+      <div class="dna-scanner">
+        <svg class="dna-svg" viewBox="0 0 100 60">
+          <path class="dna-strand strand-a" d="M10,30 Q25,5 40,30 T70,30 T100,30" fill="none" stroke="#4FD8FF" stroke-width="2" />
+          <path class="dna-strand strand-b" d="M10,30 Q25,55 40,30 T70,30 T100,30" fill="none" stroke="#00E676" stroke-width="2" />
+          <circle class="dna-node node-1" cx="25" cy="18" r="3" fill="#4FD8FF" />
+          <circle class="dna-node node-2" cx="40" cy="30" r="3" fill="#00E676" />
+          <circle class="dna-node node-3" cx="55" cy="42" r="3" fill="#4FD8FF" />
+          <circle class="dna-node node-4" cx="70" cy="30" r="3" fill="#00E676" />
+        </svg>
+        <div class="scan-bar"></div>
+      </div>
+      
+      <div class="progress-wrap">
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="loader-progress"></div>
+        </div>
+        <div class="progress-percentage" id="loader-pct">00%</div>
+      </div>
+      
+      <div class="terminal-footer">
+        <div class="status-msg" id="status-text">SECURE TERMINAL LOCKED</div>
+        <button class="access-btn" id="access-btn" disabled>
+          <span class="access-text">DECRYPT GATEWAY</span>
+          <span class="fingerprint-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Navigation -->
+  <header class="glass-nav">
+    <div class="nav-container">
+      <a href="#" class="logo-mib">
+        <span class="logo-text">M I B</span>
+        <span class="logo-tag">CLASSIFIED</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#hero" class="nav-item active" data-target="hero">AGENCY</a>
+        <a href="#chapter-recruitment" class="nav-item" data-target="recruitment">RECRUIT</a>
+        <a href="#chapter-aliens" class="nav-item" data-target="aliens">ALIENS</a>
+        <a href="#chapter-technology" class="nav-item" data-target="technology">TECH</a>
+        <a href="#chapter-headquarters" class="nav-item" data-target="hq">HQ</a>
+        <a href="#chapter-transport" class="nav-item" data-target="garage">VEHICLES</a>
+        <a href="#chapter-galaxy" class="nav-item" data-target="galaxy">COSMOS</a>
+      </nav>
+      <div class="audio-control" id="audio-toggle">
+        <span class="audio-label">COMM LINK</span>
+        <div class="audio-bars">
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- HERO SECTION -->
+      <section id="hero" class="chapter-section active">
+        <!-- Rain & Cloud Atmosphere -->
+        <div class="hero-bg-container">
+          <div class="fog-layer fog-1"></div>
+          <div class="fog-layer fog-2"></div>
+          <div class="hologram-grid"></div>
+        </div>
+        
+
+        <div class="scroll-prompt">
+          <span class="prompt-text">SWIPE DOWN TO DECLASSIFY</span>
+          <div class="prompt-arrow"></div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 01: THE RECRUITMENT -->
+      <section id="chapter-recruitment" class="chapter-section">
+        <div class="section-content split">
+          <div class="split-left">
+            <div class="chapter-num">CHAPTER 01 // IDENTITY ASSESSMENT</div>
+            <h2 class="chapter-title">THE RECRUITMENT</h2>
+            <p class="chapter-desc">
+              You are here because you represent the absolute peak of human capacity. But you must leave your past behind. Your identity is about to be systematically erased, and reformatted into a shield for the galaxy.
+            </p>
+            
+            <div class="retina-scanner-widget">
+              <div class="scanner-screen">
+                <div class="scanner-grid"></div>
+                <div class="scanner-lens">
+                  <div class="lens-iris"></div>
+                  <div class="lens-crosshair"></div>
+                </div>
+                <div class="scanner-sweep"></div>
+                <div class="scanner-telemetry">
+                  <div>RETINA RESOLUTION: <span class="t-green">99.87% MATCH</span></div>
+                  <div>PULSE: <span class="t-cyan">72 BPM</span></div>
+                  <div>STATUS: <span class="t-green">SECURE</span></div>
+                </div>
+              </div>
+              <div class="widget-label">RETINA DIAGNOSTIC SYSTEM</div>
+            </div>
+          </div>
+          
+          <div class="split-right">
+            <!-- 3D Holographic ID Card -->
+            <div class="holo-card-container">
+              <div class="holo-card" id="agent-card">
+                <div class="card-glare"></div>
+                <div class="card-header">
+                  <span class="card-logo">M I B</span>
+                  <span class="card-class">LEVEL 5 ACCESS</span>
+                </div>
+                <div class="card-mugshot">
+                  <video id="agent-webcam" autoplay playsinline muted></video>
+                  <div id="face-scanner-box"></div>
+                  <div class="mugshot-outline"></div>
+                  <div class="mugshot-scanline"></div>
+                  <div class="mugshot-avatar" id="avatar-placeholder"></div>
+                  <div class="card-click-overlay" id="card-activation-overlay">
+                    <div class="fingerprint-scan-icon"></div>
+                    <span class="activation-text">ACTIVATE ID CARD</span>
+                  </div>
+                </div>
+                <div class="card-details">
+                  <div class="card-row">
+                    <span class="lbl">AGENT:</span>
+                    <span class="val text-cyan" id="badge-agent-name">"PENDING"</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="lbl">ORIGIN:</span>
+                    <span class="val">SECTOR 8-G (EARTH)</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="lbl">STATUS:</span>
+                    <span class="val text-green" id="badge-agent-status">OFFLINE</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="lbl">ID:</span>
+                    <span class="val font-mono">009-847-XF</span>
+                  </div>
+                </div>
+                <div class="card-chip"></div>
+                <div class="card-footer">DEPARTMENT OF EXTRATERRESTRIAL OPERATIONS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: THE HIDDEN WORLD -->
+      <section id="chapter-hidden-world" class="chapter-section">
+        <div class="section-content split reverse">
+          <div class="split-left">
+            <!-- Interlocking Reality Scanner slider -->
+            <div class="reality-scanner" id="reality-scanner-container">
+              <div class="reality-view view-earth">
+                <div class="reality-label font-mono">NORMALITY_FILTER.CSS</div>
+                <img src="/MIB/b3.png" class="reality-img" alt="Normality View">
+              </div>
+              <div class="reality-view view-alien" id="alien-view">
+                <div class="reality-label font-mono text-cyan">CLASSIFIED_REALITY.SHD</div>
+                <img src="/MIB/b4.png" class="reality-img" alt="Alien View">
+              </div>
+              <div class="scanner-handle" id="scanner-handle">
+                <div class="handle-bar"></div>
+                <div class="handle-node">
+                  <span class="handle-arrows">&lt;&gt;</span>
+                </div>
+              </div>
+            </div>
+            <div class="widget-label">REALITY DECODER (DRAG SLIDER)</div>
+          </div>
+          
+          <div class="split-right">
+            <div class="chapter-num">CHAPTER 02 // PARADIGM SHIFT</div>
+            <h2 class="chapter-title">THE HIDDEN WORLD</h2>
+            <p class="chapter-desc">
+              Your eyes see only what your mind can process. The coffee cart vendor, the mail carrier, the taxi driver—over 1,500 extraterrestrial immigrants live among us, hiding in plain sight under global supervision.
+            </p>
+            <div class="intel-alert">
+              <span class="alert-icon">⚠️</span>
+              <span class="alert-text font-mono text-orange">COGNITIVE FILTER BYPASS ENGAGED</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03: ALIEN DATABASE -->
+      <section id="chapter-aliens" class="chapter-section">
+        <div class="section-content">
+          <div class="chapter-header-center">
+            <div class="chapter-num text-center">CHAPTER 03 // IMMIGRATION ROSTER</div>
+            <h2 class="chapter-title text-center">ALIEN DATABASE</h2>
+            <p class="chapter-desc text-center">
+              Hover over classified profiles to run DNA scans, review homeworld origins, and determine localized threat parameters.
+            </p>
+          </div>
+          
+          <!-- Alien Database Grid -->
+          <div class="alien-cards-grid">
+            <!-- Card 1: Worm Guys -->
+            <div class="alien-card-wrap">
+              <div class="alien-card">
+                <div class="dna-overlay"></div>
+                <div class="alien-media worm-guys-img">
+                  <img src="/MIB/ANNELIDS (WORM GUYS).png" class="alien-photo" alt="Annelids (Worm Guys)">
+                  <div class="hologram-projection"></div>
+                </div>
+                <div class="alien-info">
+                  <h3 class="alien-name">ANNELIDS (WORM GUYS)</h3>
+                  <div class="alien-spec"><span class="lbl">HOMEWORLD:</span><span class="val">UNKNOWN</span></div>
+                  <div class="alien-spec"><span class="lbl">THREAT LEVEL:</span><span class="val text-green">MINIMAL (COFFEE DEPENDENT)</span></div>
+                  <div class="alien-spec"><span class="lbl">CLASSIFICATION:</span><span class="val text-cyan">IMMIGRANT SECTOR 4</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Frank the Pug -->
+            <div class="alien-card-wrap">
+              <div class="alien-card">
+                <div class="dna-overlay"></div>
+                <div class="alien-media frank-img">
+                  <img src="/MIB/REMOOLIAN (FRANK THE PUG).png" class="alien-photo" alt="Remoolian (Frank the Pug)">
+                  <div class="hologram-projection"></div>
+                </div>
+                <div class="alien-info">
+                  <h3 class="alien-name">REMOOLIAN (FRANK THE PUG)</h3>
+                  <div class="alien-spec"><span class="lbl">HOMEWORLD:</span><span class="val">REMOOLA</span></div>
+                  <div class="alien-spec"><span class="lbl">THREAT LEVEL:</span><span class="val text-cyan">LOW (SARCASTIC AGENT)</span></div>
+                  <div class="alien-spec"><span class="lbl">CLASSIFICATION:</span><span class="val text-cyan">COMMUNICATION LINK</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Edgar the Bug -->
+            <div class="alien-card-wrap">
+              <div class="alien-card">
+                <div class="dna-overlay"></div>
+                <div class="alien-media bug-img">
+                  <img src="/MIB/PLUVIAN (EDGAR THE BUG).png" class="alien-photo" alt="Pluvian (Edgar the Bug)">
+                  <div class="hologram-projection"></div>
+                </div>
+                <div class="alien-info">
+                  <h3 class="alien-name">PLUVIAN (EDGAR THE BUG)</h3>
+                  <div class="alien-spec"><span class="lbl">HOMEWORLD:</span><span class="val">SECTOR 9</span></div>
+                  <div class="alien-spec"><span class="lbl">THREAT LEVEL:</span><span class="val text-orange font-bold">CATASTROPHIC</span></div>
+                  <div class="alien-spec"><span class="lbl">CLASSIFICATION:</span><span class="val text-orange">HOSTILE SPECIES</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: MIB TECHNOLOGY -->
+      <section id="chapter-technology" class="chapter-section">
+        <div class="section-content">
+          <div class="chapter-header-center">
+            <div class="chapter-num text-center">CHAPTER 04 // TACTICAL WEAPONRY</div>
+            <h2 class="chapter-title text-center">MIB TECHNOLOGY</h2>
+            <p class="chapter-desc text-center">
+              Classified gadgets designed with zero compromises. Precision engineering constructed from dark titanium and electro-reactive alloys. Hover to disassemble.
+            </p>
+          </div>
+
+          <div class="tech-showcase">
+            <!-- Tech 1: Neuralyzer -->
+            <div class="tech-item-card" id="tech-neuralyzer">
+              <div class="tech-viewport">
+                <div class="hologram-grid-mini"></div>
+                <div class="laser-scanner-sweep" id="neuralyzer-sweep"></div>
+                <div class="tech-image-container" id="neuralyzer-img-container">
+                  <img src="/MIB/a3.png" class="tech-image img-normal img-neuralyzer" alt="The Neuralyzer">
+                  <img src="/MIB/a4.png" class="tech-image img-hover img-neuralyzer" alt="The Neuralyzer Hover">
+                </div>
+                <div class="neuralyzer-light-beam"></div>
+              </div>
+              <div class="tech-details-wrap">
+                <div class="tech-label font-mono">SYSTEM: ELECTRO-NEURO NEURALYZER</div>
+                <h3 class="tech-name">THE NEURALYZER</h3>
+                <p class="tech-desc">
+                  Isolates and wipes memory synapses via localized electromagnetic pulses. Custom dial calibrated by days, months, and years.
+                </p>
+                <button class="tech-action-btn neuralyzer-trigger" id="neuralyzer-trigger">
+                  <span class="btn-cyan-pulse"></span>
+                  <span class="btn-inner">TRIGGER RETROACTIVE FLASH</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tech 2: Noisy Cricket -->
+            <div class="tech-item-card" id="tech-cricket">
+              <div class="tech-details-wrap">
+                <div class="tech-label font-mono">SYSTEM: SUB-ATOMIC THERMAL BLASTER</div>
+                <h3 class="tech-name">THE NOISY CRICKET</h3>
+                <p class="tech-desc">
+                  Compact. Devastating. Fires a packet of concentrated sub-atomic plasma capable of vaporizing targeted matter. Extreme recoil warning.
+                </p>
+                <div class="tech-stats font-mono">
+                  <div>DISCHARGE ENERGY: <span class="text-orange">45.8 TERAWATTS</span></div>
+                  <div>RECOIL FORCE: <span class="text-orange">3400 N</span></div>
+                </div>
+              </div>
+              <div class="tech-viewport">
+                <div class="hologram-grid-mini"></div>
+                <div class="laser-scanner-sweep" id="cricket-sweep"></div>
+                <img src="/MIB/THE NOISY CRICKET.png" class="tech-image img-cricket" id="cricket-img" alt="The Noisy Cricket">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 05: THE HEADQUARTERS (Scroll Scrubbing) -->
+      <section id="chapter-headquarters" class="chapter-section scroll-pin-section">
+        <div class="scrub-container" id="scrub-container">
+          <!-- The preloaded frames are drawn here -->
+          <canvas id="hq-scrub-canvas"></canvas>
+          <div class="canvas-fallback-img" style="background-image: url('/MIB/office1.png');"></div>
+          <div class="canvas-shadow-overlay"></div>
+          
+          <div class="scrub-overlay-content">
+            <div class="scrub-panel panel-1">
+              <div class="chapter-num">CHAPTER 05 // COMMAND HQ</div>
+              <h2 class="scrub-heading">THE LOBBY</h2>
+              <p class="scrub-desc">
+                Entering the main atrium. A massive subterranean bunker hidden directly underneath the Brooklyn-Battery Tunnel ventilation building.
+              </p>
+            </div>
+            
+            <div class="scrub-panel panel-2">
+              <h2 class="scrub-heading">SECURE ACCESS ARCHITECTURE</h2>
+              <p class="scrub-desc">
+                Constructed from solid titanium-carbide alloys. Floating walkways, ray-traced ambient reflections, and automated security drone sweeps protect key archival databases.
+              </p>
+            </div>
+            
+            <div class="scrub-panel panel-3">
+              <h2 class="scrub-heading">MONITORING THE SECTORS</h2>
+              <p class="scrub-desc">
+                Active sensors track deep-space movements, orbital satellites, and local immigration activities across the Eastern Seaboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 06: SECRET TRANSPORT -->
+      <section id="chapter-transport" class="chapter-section">
+        <div class="section-content">
+          <div class="chapter-header-center">
+            <div class="chapter-num text-center">CHAPTER 06 // AGENT STABLE</div>
+            <h2 class="chapter-title text-center">SECRET TRANSPORT</h2>
+            <p class="chapter-desc text-center">
+              Luxury vehicles designed for extreme velocity, tactical stealth, and orbital escape vectors.
+            </p>
+          </div>
+
+          <!-- Vehicle Showcase -->
+          <div class="vehicle-gallery">
+            <!-- Vehicle 1 -->
+            <div class="vehicle-card" id="car-ltd">
+              <div class="vehicle-glow"></div>
+              <div class="vehicle-visual">
+                <img src="/MIB/car2.png" class="vehicle-image img-ltd" alt="Ford LTD Crown Victoria">
+                <div class="car-engine-fire"></div>
+              </div>
+              <div class="vehicle-info">
+                <div class="vehicle-year font-mono">1987</div>
+                <h3 class="vehicle-name">FORD LTD CROWN VICTORIA</h3>
+                <p class="vehicle-desc">
+                  The legendary sedan. Looks like a generic government cruiser. Equipped with twin fusion thrusters on the rear axle. Do not push the red button.
+                </p>
+                <div class="specs-grid-mini font-mono">
+                  <div>PROPULSION: <span class="text-cyan font-bold">JET-REACTION</span></div>
+                  <div>MAX SPEED: <span class="text-cyan font-bold">SUB-ORBITAL</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle 2 -->
+            <div class="vehicle-card" id="car-audi">
+              <div class="vehicle-glow"></div>
+              <div class="vehicle-visual">
+                <img src="/MIB/car1.png" class="vehicle-image img-audi" alt="Audi R8 E-Tron MIB">
+                <div class="car-engine-fire"></div>
+              </div>
+              <div class="vehicle-info">
+                <div class="vehicle-year font-mono">2026</div>
+                <h3 class="vehicle-name">AUDI R8 E-TRON MIB</h3>
+                <p class="vehicle-desc">
+                  Modern covert operations cruiser. Aerodynamic shell forged from dark titanium with carbon fiber matrix inserts. Fully automated autopilot and scanner array.
+                </p>
+                <div class="specs-grid-mini font-mono">
+                  <div>PROPULSION: <span class="text-cyan font-bold">ION-DRIVE</span></div>
+                  <div>MAX SPEED: <span class="text-cyan font-bold">420 MPH (LAND)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 07: THE GALAXY -->
+      <section id="chapter-galaxy" class="chapter-section">
+        <!-- Interactive Deep Space Starfield -->
+        <canvas id="galaxy-canvas"></canvas>
+        <div class="canvas-glow-overlay"></div>
+        
+        <div class="section-content center">
+          <div class="chapter-num text-center">CHAPTER 07 // DEEP COSMOS</div>
+          <h2 class="galaxy-title">THE GALAXY IS ON ORION'S BELT</h2>
+          <p class="galaxy-desc text-center">
+            We are just a tiny marble sitting in the pocket of an unfathomable cosmic force. Beyond our stars, infinite dimensions and galactic federations keep watch.
+          </p>
+          
+          <div class="constellation-grid">
+            <div class="galaxy-coordinate">DEEP SPACE COORDINATES: <span class="text-cyan font-mono">X_904 // Y_883 // Z_102</span></div>
+            <div class="galaxy-radar">
+              <div class="radar-line"></div>
+              <div class="radar-ping"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER / EXIT PORTAL -->
+      <footer class="mib-footer">
+        <div class="footer-bg">
+          <div class="satellite-orbit">
+            <div class="satellite"></div>
+          </div>
+        </div>
+        
+        <div class="footer-content">
+          <p class="footer-quote">
+            "The universe is far stranger than we ever imagined. Some secrets aren't hidden—they're protected."
+          </p>
+          <div class="exit-gate">
+            <button class="cta-gate-btn magnetic reset-btn" id="reboot-portal-btn">
+              <span class="btn-border-glow"></span>
+              <span class="btn-text">RE-ENTER THE PROTOCOL</span>
+            </button>
+          </div>
+          
+          <div class="footer-sub font-mono">
+            <div>© 2026 MIB OPERATIONS DEPT. ALL RIGHTS DECLASSIFIED.</div>
+            <div class="security-level">CLEARANCE LEVEL 5 REQUIRED</div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Import JS Entrypoint -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

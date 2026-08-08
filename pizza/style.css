@@ -1,0 +1,1043 @@
+/* ==========================================================================
+   FORNO // THE ART OF PIZZA // BRAND STYLE SYSTEM (VERTICAL EDITION)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-cream: #FAF1E2;        /* Main background cream */
+  --color-ivory: #FFF8EC;        /* Large negative space soft ivory */
+  --color-orange: #E87522;       /* Warm orange brand accent */
+  --color-burnt-orange: #B94816; /* Secondary burnt orange */
+  --color-tomato: #C94327;       /* Tomato red accent */
+  --color-brown: #2A160D;        /* Deep brown contrast */
+  --color-green: #536B35;        /* Basil green accent */
+  --color-gold: #D99A45;         /* Caramel gold */
+  
+  --color-white-glass: rgba(255, 248, 236, 0.12);
+  --border-glass: rgba(255, 255, 255, 0.2);
+  --shadow-glass: rgba(42, 22, 13, 0.08);
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', serif;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Sora', sans-serif;
+}
+
+/* ==========================================================================
+   CORE SYSTEM RESETS
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  height: auto;
+  cursor: none; /* Hide default cursor */
+  transition: background-color 1s ease;
+}
+
+a, button {
+  cursor: none;
+  text-decoration: none;
+}
+
+/* Font helpers */
+.font-serif { font-family: var(--font-serif); }
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+.text-gold { color: var(--color-gold) !important; }
+.text-accent { color: var(--color-orange) !important; }
+
+/* ==========================================================================
+   CUSTOM CINEMATIC CURSOR
+   ========================================================================== */
+
+#pizza-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#pizza-cursor .cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+#pizza-cursor .cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-orange);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Hover expansion */
+body.c-hover #pizza-cursor .cursor-ring {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(232, 117, 34, 0.08);
+  border-color: var(--color-orange);
+}
+
+/* ==========================================================================
+   PRELOADER SCREEN
+   ========================================================================== */
+
+.pizza-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.8s ease-out;
+}
+
+.loader-bg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232, 117, 34, 0.08) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.loader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.loader-logo {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 14px;
+  color: var(--color-brown);
+  margin-bottom: 8px;
+}
+
+.loader-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--color-gold);
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+}
+
+.loader-bar-wrap {
+  width: 180px;
+  height: 2px;
+  background-color: rgba(42, 22, 13, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.loader-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-orange);
+  transition: width 0.1s ease-out;
+}
+
+.loader-text {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: rgba(42, 22, 13, 0.4);
+}
+
+/* ==========================================================================
+   GLOBAL GLASS NAVIGATION NAVBAR
+   ========================================================================== */
+
+.pizza-header {
+  position: fixed;
+  top: 30px;
+  left: 5%;
+  width: 90%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  border-radius: 35px;
+  background-color: rgba(250, 241, 226, 0.15);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 40px var(--shadow-glass);
+  z-index: 999;
+  opacity: 0.1;
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.5s;
+}
+
+.pizza-header.visible {
+  opacity: 1;
+}
+
+.light-theme-dark-elements .pizza-header {
+  background-color: rgba(42, 22, 13, 0.04);
+  border-color: rgba(42, 22, 13, 0.1);
+}
+
+.pizza-header .logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--color-ivory);
+  transition: color 0.5s;
+}
+
+.light-theme-dark-elements .pizza-header .logo {
+  color: var(--color-brown);
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-link {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: rgba(255, 248, 236, 0.65);
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+.light-theme-dark-elements .nav-link {
+  color: rgba(42, 22, 13, 0.65);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-orange);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-orange);
+  transition: width 0.3s;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   GLASSMOPHISM BUTTONS
+   ========================================================================== */
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  background-color: var(--color-white-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px var(--shadow-glass);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.btn-glass .btn-text {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--color-ivory);
+  transition: color 0.5s;
+}
+
+.light-theme-dark-elements .btn-glass {
+  border-color: rgba(42, 22, 13, 0.15);
+  background-color: rgba(42, 22, 13, 0.05);
+}
+
+.light-theme-dark-elements .btn-glass .btn-text {
+  color: var(--color-brown);
+}
+
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--color-orange);
+}
+
+/* Accent filled/outlined */
+.btn-accent-filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 22px;
+  border: none;
+  background-color: var(--color-orange);
+  color: var(--color-cream) !important;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(232, 117, 34, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-accent-filled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(232, 117, 34, 0.35);
+}
+
+.btn-accent-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 22px;
+  border: 1px solid var(--color-orange);
+  background-color: transparent;
+  color: var(--color-orange);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-accent-outline:hover {
+  background-color: var(--color-orange);
+  color: var(--color-cream);
+}
+
+/* ==========================================================================
+   SCROLL SYSTEM & STICKY VIEWPORT (VERTICAL EDITION)
+   ========================================================================== */
+
+.scroll-container {
+  width: 100%;
+  position: relative;
+}
+
+.sticky-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.ambient-glow-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(232, 117, 34, 0.15) 0%, transparent 60%);
+  transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   FIXED BACKDROP CANVAS
+   ========================================================================== */
+
+.pizza-canvas-panel {
+  width: 100vw;
+  height: 100vh;
+  position: fixed; /* Anchored in viewport background */
+  left: 0;
+  top: 0;
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.pizza-canvas-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 22, 13, 0.45); /* Dark wash for dynamic contrast */
+  z-index: 2;
+  pointer-events: none;
+  transition: background 1s ease;
+}
+
+.light-theme-dark-elements .pizza-canvas-panel::after {
+  background: rgba(255, 248, 236, 0.12); /* Soft wash on cream backgrounds */
+}
+
+.canvas-viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.canvas-viewport canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   VERTICAL SECTIONS SCROLL TRACK
+   ========================================================================== */
+
+.pizza-scroll-track {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scroll-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Default left-aligned */
+  padding: 12vh 10%;
+  position: relative;
+  pointer-events: none;
+}
+
+/* Alternating Editorial Card Columns (Asymmetric rhythm) */
+.scroll-section:nth-child(even) {
+  justify-content: flex-end; /* Align right on even sections */
+  padding-left: 0;
+  padding-right: 10%;
+}
+
+.hero-overlay-center {
+  width: 44vw;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.hero-overlay-center h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+}
+
+.hero-subtext {
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(255, 248, 236, 0.8);
+  margin-bottom: 35px;
+  font-family: var(--font-mono);
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.indicator-arrow {
+  font-size: 0.75rem;
+  color: var(--color-orange);
+  letter-spacing: -1px;
+}
+
+.indicator-text {
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  color: rgba(255, 248, 236, 0.4);
+}
+
+/* ==========================================================================
+   EDITORIAL CARDS ARCHITECTURE (SLIDES 02-07)
+   ========================================================================== */
+
+.editorial-card {
+  width: 44vw;
+  height: 76vh;
+  border-radius: 24px;
+  background-color: rgba(250, 241, 226, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(42, 22, 13, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 10;
+  transition: background-color 0.8s, border-color 0.8s, box-shadow 0.8s;
+}
+
+.light-theme-dark-elements .editorial-card {
+  background-color: rgba(255, 248, 236, 0.75);
+  border-color: rgba(42, 22, 13, 0.12);
+  box-shadow: 0 20px 50px rgba(42, 22, 13, 0.04);
+}
+
+.card-img-wrap {
+  width: 100%;
+  height: 52%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-brown);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-card:hover .card-img {
+  transform: scale(1.06);
+}
+
+.double-split {
+  display: flex;
+  gap: 2px;
+}
+
+.double-split .card-img {
+  flex: 1;
+  width: 50%;
+}
+
+.card-content {
+  width: 100%;
+  height: 48%;
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-num {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-ivory);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  transition: color 0.5s;
+}
+
+.light-theme-dark-elements .card-title {
+  color: var(--color-brown);
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 248, 236, 0.75);
+  transition: color 0.5s;
+}
+
+.light-theme-dark-elements .card-desc {
+  color: rgba(42, 22, 13, 0.65);
+}
+
+.spec-table {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-top-color 0.5s;
+}
+
+.light-theme-dark-elements .spec-table {
+  border-top-color: rgba(42, 22, 13, 0.08);
+}
+
+.spec-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.spec-line .lbl {
+  color: rgba(255, 248, 236, 0.45);
+  transition: color 0.5s;
+}
+
+.light-theme-dark-elements .spec-line .lbl {
+  color: rgba(42, 22, 13, 0.45);
+}
+
+.ingredient-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.ing-badge {
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-ivory);
+  font-weight: 600;
+  transition: border-color 0.5s, color 0.5s, background-color 0.5s;
+}
+
+.light-theme-dark-elements .ing-badge {
+  background-color: rgba(42, 22, 13, 0.04);
+  border-color: rgba(42, 22, 13, 0.12);
+  color: var(--color-brown);
+}
+
+/* ==========================================================================
+   HUD METRICS INDICATORS
+   ========================================================================== */
+
+.pizza-hud {
+  position: fixed; /* Fixed in window foreground */
+  bottom: 40px;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.8s, color 0.5s;
+  pointer-events: none;
+  color: var(--color-ivory);
+}
+
+.pizza-hud.visible {
+  opacity: 0.7;
+}
+
+.light-theme-dark-elements .pizza-hud {
+  color: var(--color-brown);
+}
+
+.progress-bar-container {
+  width: 150px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+  transition: background-color 0.5s;
+}
+
+.light-theme-dark-elements .progress-bar-container {
+  background-color: rgba(42, 22, 13, 0.1);
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-orange);
+  transition: width 0.1s ease-out;
+}
+
+.progress-digits {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SOLID OVERLAY SECTIONS (SLIDES 08-10)
+   ========================================================================== */
+
+.solid-overlay {
+  background-color: var(--color-ivory);
+  padding: 15vh 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15; /* Covers background canvas */
+  border-top: 1px solid rgba(42, 22, 13, 0.03);
+  pointer-events: auto;
+}
+
+.glass-panel {
+  background-color: rgba(250, 241, 226, 0.35);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 15px 45px var(--shadow-glass);
+  border-radius: 24px;
+}
+
+/* Menu Layout */
+.menu-wrap {
+  width: 100%;
+  max-width: 1100px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.section-title.center {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.menu-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.pizza-cards-container {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  justify-content: center;
+}
+
+.pizza-card {
+  width: 310px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.pizza-card:hover {
+  border-color: var(--color-orange);
+  transform: translateY(-5px);
+}
+
+.pizza-card-img-wrap {
+  width: 100%;
+  height: 170px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pizza-img-menu {
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 25px rgba(42, 22, 13, 0.15);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pizza-card:hover .pizza-img-menu {
+  transform: scale(1.08) rotate(15deg);
+}
+
+.pizza-card-glow {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 117, 34, 0.15) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.pizza-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.pizza-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-brown);
+}
+
+.pizza-price {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(42, 22, 13, 0.12);
+  color: var(--color-orange);
+}
+
+.pizza-ingredients {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(42, 22, 13, 0.6);
+}
+
+/* Reviews Layout */
+.reviews-wrap {
+  width: 80%;
+  max-width: 1100px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews-grid {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.review-card {
+  flex: 1;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 250px;
+}
+
+.stars {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--color-brown);
+}
+
+.review-author {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: rgba(42, 22, 13, 0.4);
+  margin-top: auto;
+}
+
+/* Feedback Form & Final Call */
+.form-wrap {
+  width: 90%;
+  max-width: 950px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-form {
+  width: 100%;
+  max-width: 650px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.glass-form label {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: rgba(42, 22, 13, 0.5);
+}
+
+.glass-form input, 
+.glass-form textarea, 
+.glass-form select {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  background-color: rgba(255, 255, 255, 0.35);
+  color: var(--color-brown);
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.glass-form input:focus, 
+.glass-form textarea:focus, 
+.glass-form select:focus {
+  border-color: var(--color-orange);
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.closing-wrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closing-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-brown);
+  margin-bottom: 6px;
+}
+
+.closing-desc {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--color-gold);
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   FOOTER (Unified Bottom)
+   ========================================================================== */
+
+.luxury-footer {
+  width: 100% !important; /* Full width for vertical layout */
+  height: 80px;
+  border-top: 1px solid rgba(42, 22, 13, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6%;
+  font-size: 0.65rem;
+  color: rgba(42, 22, 13, 0.35);
+  letter-spacing: 2px;
+  background-color: var(--color-ivory);
+  margin-top: 10vh;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE HORIZONTAL GESTURES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  html, body {
+    cursor: auto;
+  }
+  
+  #pizza-cursor {
+    display: none;
+  }
+  
+  .pizza-header {
+    top: 15px;
+    height: 60px;
+    padding: 0 20px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .hero-overlay-center h1 {
+    font-size: 3.5rem;
+  }
+  
+  .editorial-card {
+    width: 80vw;
+    height: 80vh;
+  }
+  
+  .scroll-section {
+    padding: 8vh 5%;
+  }
+  
+  .scroll-section:nth-child(even) {
+    justify-content: center;
+    padding-right: 5%;
+  }
+  
+  .pizza-cards-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .reviews-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

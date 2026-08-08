@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HW Legacy / More Than A Toy</title>
+  <meta name="description" content="An immersive storytelling experience celebrating Hot Wheels, from childhood imagination to premium adult collecting.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="loader" class="loader-container">
+    <div class="loader-content">
+      <div class="wheel-outer">
+        <div class="wheel-inner">
+          <div class="spoke"></div>
+          <div class="spoke"></div>
+          <div class="spoke"></div>
+          <div class="spoke"></div>
+          <div class="spoke"></div>
+        </div>
+      </div>
+      <div class="loader-percentage">0%</div>
+      <div class="loader-text">PREPARING SHOWROOM</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor Spotlight -->
+  <div id="cursor-glow"></div>
+  <div id="custom-cursor"></div>
+
+  <!-- Floating Navigation -->
+  <header class="glass-nav">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-hw">HW</span>
+        <span class="logo-divider">|</span>
+        <span class="logo-sub">LEGACY</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#chapter-one" class="nav-item" data-target="1">01 / FIRST RACE</a>
+        <a href="#chapter-two" class="nav-item" data-target="2">02 / DREAMS</a>
+        <a href="#chapter-three" class="nav-item" data-target="3">03 / SHOWROOM</a>
+        <a href="#chapter-four" class="nav-item" data-target="4">04 / SPECS</a>
+        <a href="#chapter-five" class="nav-item" data-target="5">05 / LEGACY</a>
+      </nav>
+      <div class="sound-toggle" id="sound-toggle" aria-label="Toggle Sound">
+        <span class="sound-text">AUDIO</span>
+        <div class="sound-bars">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Orange Neon Track Guide SVG -->
+  <div class="track-guide-container">
+    <svg class="track-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+      <path id="neon-track" d="M 50 0 Q 30 200, 70 400 T 50 800" fill="none" />
+      <path id="neon-track-glow" d="M 50 0 Q 30 200, 70 400 T 50 800" fill="none" />
+    </svg>
+  </div>
+
+  <!-- Main Scroll Container -->
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- Pinned Interactive Canvas Background -->
+      <div class="canvas-container">
+        <canvas id="car-canvas"></canvas>
+        <div class="ambient-studio-light"></div>
+      </div>
+
+      <!-- Hero Section -->
+      <section id="chapter-hero" class="chapter-sec active">
+        <div class="section-content">
+          <div class="title-wrap">
+            <h1 class="hero-title" data-text="MORE THAN A TOY.">MORE THAN A TOY.</h1>
+            <h1 class="hero-title accent" data-text="A LIFETIME OF SPEED.">A LIFETIME OF SPEED.</h1>
+          </div>
+          <p class="hero-sub">
+            Every collector remembers the first Hot Wheels they held. This is the journey from childhood imagination to lifelong passion.
+          </p>
+          <button class="cta-btn magnetic" id="start-btn">
+            <span class="cta-btn-text">BEGIN THE RIDE</span>
+            <span class="cta-btn-glow"></span>
+          </button>
+        </div>
+        <div class="scroll-indicator">
+          <span>SCROLL TO START</span>
+          <div class="indicator-arrow"></div>
+        </div>
+      </section>
+
+      <!-- Chapter 1: First Race -->
+      <section id="chapter-one" class="chapter-sec">
+        <div class="section-content left">
+          <div class="chapter-number">01 / 05</div>
+          <h2 class="section-heading">FIRST RACE</h2>
+          <p class="section-desc">
+            A nostalgic living room floor. Wooden planks stretching into infinite speedways. Tracks snapped together. Warm afternoon sun filtering through the window, casting long shadows. In this sandbox of speed, ordinary carpet became an asphalt playground.
+          </p>
+          <div class="nostalgia-badge">
+            <span class="badge-icon">☼</span>
+            <span class="badge-text">EST. 1968 / COGNITIVE SPARK</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 2: Dreams Accelerate -->
+      <section id="chapter-two" class="chapter-sec">
+        <div class="section-content right">
+          <div class="chapter-number">02 / 05</div>
+          <h2 class="section-heading">DREAMS ACCELERATE</h2>
+          <p class="section-desc">
+            As the years raced by, childhood toys transformed. The tracks were packed away, but the passion was never shelved. The wooden floors became a minimalist studio, and the playthings were recognized for what they truly were: masterpieces of design.
+          </p>
+          <div class="studio-badge">
+            <span class="badge-text">TRANSITION / DIE-CAST ARTISTRY</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 3: Collector's Gallery (Interactive Showroom) -->
+      <section id="chapter-three" class="chapter-sec gallery-sec">
+        <div class="section-content center">
+          <div class="chapter-number">03 / 05</div>
+          <h2 class="section-heading">COLLECTOR'S GALLERY</h2>
+          <p class="section-desc">
+            A museum of miniatures. Here, every die-cast model is a supercar under high-contrast studio spotlights. Drag to explore the vehicle's design in 360-degree high-fidelity. Feel the weight of die-cast steel.
+          </p>
+          <div class="drag-hint" id="drag-hint">
+            <div class="drag-hand"></div>
+            <span>DRAG HORIZONTALLY TO SPIN</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 4: Engineering Beauty (Exploded View / Hotspots) -->
+      <section id="chapter-four" class="chapter-sec specs-sec">
+        <div class="section-content">
+          <div class="chapter-number">04 / 05</div>
+          <h2 class="section-heading text-center">ENGINEERING BEAUTY</h2>
+          
+          <!-- Glassmorphism Spec Cards Container -->
+          <div class="specs-grid">
+            <div class="spec-card card-left" data-target-point="chassis">
+              <span class="spec-num">01</span>
+              <h3>DIE-CAST CHASSIS</h3>
+              <p>Heavy ZAMAC alloy base for ultimate stability, realistic weight, and lifelong durability.</p>
+            </div>
+            <div class="spec-card card-right" data-target-point="wheels">
+              <span class="spec-num">02</span>
+              <h3>REAL RIDERS</h3>
+              <p>Precision-molded rubber tires mounted on custom metallic orange rims for low-friction velocity.</p>
+            </div>
+            <div class="spec-card card-left" data-target-point="cockpit">
+              <span class="spec-num">03</span>
+              <h3>POLYCARBONATE CANOPY</h3>
+              <p>Tinted glass aerodynamic dome shaped to reflect the low-slung stance of premium supercars.</p>
+            </div>
+            <div class="spec-card card-right" data-target-point="engine">
+              <span class="spec-num">04</span>
+              <h3>V8 CHROMED POWERTRAIN</h3>
+              <p>Highly detailed mock engine block sculpted with twin exhausts to represent extreme speed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 5: Legacy -->
+      <section id="chapter-five" class="chapter-sec legacy-sec">
+        <div class="section-content center">
+          <div class="chapter-number">05 / 05</div>
+          <h2 class="section-heading">THE LEGACY</h2>
+          
+          <!-- Full Scale Supercar Swap Container -->
+          <div class="legacy-visuals">
+            <div class="legacy-image-wrap scale-up">
+              <img src="/car2.png" id="legacy-car-model" alt="Hot Wheels Legacy Car Model" class="legacy-img img-toy">
+              <img src="/car1.png" id="legacy-car-real" alt="Hot Wheels Legacy Full Scale Supercar" class="legacy-img img-real">
+            </div>
+          </div>
+
+          <div class="final-quote-wrap">
+            <p class="final-quote">"Some dreams never get smaller. We simply grow into them."</p>
+            <p class="final-sub">Transforming childhood memories into automotive art.</p>
+          </div>
+
+          <button class="cta-btn magnetic finish-btn" id="restart-btn">
+            <span class="cta-btn-text">RERUN THE TRACK</span>
+            <span class="cta-btn-glow"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="showroom-footer">
+        <p>© 2026 HW LEGACY. EXPERIMENTAL SHOWROOM FOR CAR ENTHUSIASTS.</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Import JS Entrypoint -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
