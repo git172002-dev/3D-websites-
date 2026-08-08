@@ -614,7 +614,7 @@ body.c-click .cursor-radar-wave {
   z-index: 1;
   background-image: 
     radial-gradient(circle at 50% 55%, rgba(5, 5, 5, 0.25) 0%, rgba(5, 5, 5, 0.98) 100%),
-    url('/MIB/hero baner.png');
+    url('./hero baner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

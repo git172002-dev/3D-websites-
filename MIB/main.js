@@ -322,7 +322,7 @@ const frameCount = 82;
 const images = [];
 let loadedCount = 0;
 
-const currentFramePath = index => `/MIB/office_frames/office_${(index - 1).toString().padStart(3, '0')}.png`;
+const currentFramePath = index => `./office_frames/office_${(index - 1).toString().padStart(3, '0')}.png`;
 
 const updateLoadingProgress = () => {
   loadedCount++;

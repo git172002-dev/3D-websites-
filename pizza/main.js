@@ -30,7 +30,7 @@ const canvas = document.getElementById('pizza-canvas');
 const ctx = canvas.getContext('2d');
 
 // Resolve frame URLs
-const currentFramePath = index => `/pizza/frames/p1_${index.toString().padStart(3, '0')}.png`;
+const currentFramePath = index => `./frames/p1_${index.toString().padStart(3, '0')}.png`;
 
 // ==========================================================================
 // 1. CONCURRENT PRELOADER ENGINE

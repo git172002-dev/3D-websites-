@@ -265,7 +265,7 @@ const initCoordinatedAssetPreload = () => {
   for (let i = 0; i < TOTAL_BURGER_FRAMES; i++) {
     const img = new Image();
     const padNum = String(i).padStart(3, '0');
-    img.src = `/burger/frames/Burger_${padNum}.png`;
+    img.src = `./frames/Burger_${padNum}.png`;
     img.onload = onAssetLoaded;
     img.onerror = onAssetLoaded;
     burgerImages.push(img);
@@ -275,7 +275,7 @@ const initCoordinatedAssetPreload = () => {
   for (let i = 0; i < TOTAL_COFFEE_FRAMES; i++) {
     const img = new Image();
     const padNum = String(i).padStart(3, '0');
-    img.src = `/burger/coffee_frames/coffee_${padNum}.png`;
+    img.src = `./coffee_frames/coffee_${padNum}.png`;
     img.onload = onAssetLoaded;
     img.onerror = onAssetLoaded;
     coffeeImages.push(img);
@@ -285,7 +285,7 @@ const initCoordinatedAssetPreload = () => {
   for (let i = 0; i < TOTAL_SEA_FRAMES; i++) {
     const img = new Image();
     const padNum = String(i).padStart(3, '0');
-    img.src = `/burger/sea_frames/sea_${padNum}.png`;
+    img.src = `./sea_frames/sea_${padNum}.png`;
     img.onload = onAssetLoaded;
     img.onerror = onAssetLoaded;
     seaImages.push(img);
