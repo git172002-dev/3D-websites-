@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLenis();
   initMagneticButtons();
   initAudioSystem();
+  initMobileMenu();
   initCoordinatedAssetPreload();
 });
 
@@ -1010,4 +1011,25 @@ const startSeaEngine = (images) => {
   resizeCanvas();
   initScrollTrigger();
   requestAnimationFrame(renderLoop);
+};
+
+// Mobile Navigation Panel Overlay Toggle
+const initMobileMenu = () => {
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const menuOverlay = document.getElementById('mobile-menu-overlay');
+  
+  if (toggleBtn && menuOverlay) {
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+    });
+    
+    // Close overlay on link clicks
+    menuOverlay.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggleBtn.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      });
+    });
+  }
 };

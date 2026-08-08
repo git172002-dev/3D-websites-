@@ -741,11 +741,25 @@ body.c-hover .cursor-ring {
 }
 
 @media (max-width: 768px) {
-  /* Shrink header branding and hide desktop navigation links */
+  /* Floating glass capsule navigation menu on mobile */
   .luxury-header {
-    height: 55px;
-    top: 10px;
-    padding: 0 4%;
+    width: 90% !important;
+    height: 58px !important;
+    top: 15px !important;
+    left: 5% !important;
+    border-radius: 29px !important;
+    background-color: rgba(10, 10, 11, 0.65) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 24px !important;
+  }
+  
+  .light-theme .luxury-header {
+    background-color: rgba(250, 241, 226, 0.75) !important;
+    border-color: rgba(62, 38, 9, 0.15) !important;
+    box-shadow: 0 10px 30px rgba(62, 38, 9, 0.08) !important;
   }
   
   .header-nav {
@@ -757,9 +771,12 @@ body.c-hover .cursor-ring {
     letter-spacing: 2px;
   }
   
-  .btn-primary-mini {
-    padding: 6px 12px;
-    font-size: 0.6rem;
+  .header-cta {
+    display: none !important; /* Hide CTA button from header, shown in overlay instead */
+  }
+
+  .mobile-nav-toggle {
+    display: flex !important;
   }
 
   /* Make canvas panel span top half and hold fully visible at opacity 1.0 */
@@ -1113,4 +1130,121 @@ body.c-hover .cursor-ring {
 @keyframes indicatorPulse {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.9; }
+}
+
+/* ==========================================================================
+   MOBILE INTERACTION OVERLAYS (HAMBURGER & FULL PANEL)
+   ========================================================================== */
+
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1001; /* Must display on top of overlay menu */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s;
+}
+
+/* Light theme colors */
+.light-theme .hamburger-line {
+  background-color: #3e2609 !important;
+}
+
+/* Transform hamburger lines into X close icon when active */
+.mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Fullscreen Menu Overlay Panel */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 11, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(198, 138, 59, 0.15) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mobile-menu-links {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-gold);
+  transform: scale(1.05);
+}
+
+.mobile-menu-cta {
+  position: relative;
+  z-index: 2;
+}
+
+/* Light Theme Menu Overlay Colors */
+.light-theme .mobile-menu-overlay {
+  background-color: rgba(250, 241, 226, 0.98) !important;
+}
+
+.light-theme .mobile-nav-link {
+  color: rgba(62, 38, 9, 0.7) !important;
+}
+
+.light-theme .mobile-nav-link:hover {
+  color: #a67332 !important;
 }
