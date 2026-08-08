@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRAFTSMAN // Gourmet Double Cheeseburger Showcase</title>
+  <meta name="description" content="A luxury gourmet double cheeseburger experience. Interact and explore the craftsmanship behind the layers.">
+  
+  <!-- Fonts: Space Grotesk & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Outfit:wght@200;300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <script type="module" crossorigin src="../assets/burger-B5uaqfWm.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="../assets/burger-DrM42Opt.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- Custom Audio Toggle Widget (Global) -->
+  <div class="audio-toggle-widget font-mono magnetic" id="audio-toggle">
+    <span class="audio-wave">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+      <span class="bar bar-4"></span>
+    </span>
+    <span class="audio-text">SOUND OFF</span>
+  </div>
+
+  <!-- Luxury Editorial Loader -->
+  <div class="luxury-loader" id="luxury-loader">
+    <div class="loader-bg-glow"></div>
+    <div class="loader-content">
+      <div class="loader-logo font-display">CRAFTSMAN</div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loader-bar-fill"></div>
+      </div>
+      <div class="loader-status font-mono">LOADING SCHEMATICS // <span id="loader-pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Ambient Dynamic Spotlight Backdrop -->
+  <div class="ambient-glow-layer" id="ambient-glow"></div>
+  <div class="drifting-beams-layer">
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+  </div>
+
+  <!-- Luxury Floating Header -->
+  <header class="luxury-header">
+    <a href="../" class="header-logo font-display">CRAFTSMAN</a>
+    <nav class="header-nav">
+      <a href="#hero-scroll-container" class="nav-link active">THE BURGER</a>
+      <a href="#" class="nav-link">MENU</a>
+      <a href="#" class="nav-link">STORY</a>
+      <a href="#" class="nav-link">ORDER</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#" class="btn-primary-mini magnetic">BUILD SYSTEM</a>
+    </div>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="scroll-container">
+    
+    <!-- HERO SECTION with Exploded Burger Canvas Scrubbing -->
+    <div class="hero-burger-scroll-container" id="hero-scroll-container">
+      <div class="hero-sticky-wrapper">
+        
+        <!-- Left Side: Editorial Typography & Ingredient Panels -->
+        <div class="hero-content-panel">
+          
+          <!-- Opening Scene Headline -->
+          <div class="intro-headline-wrap" id="intro-headline">
+            <div class="story-tag font-mono text-gold">UNVEILING CODE 001 // DOUBLE CHEESEBURGER</div>
+            <h1 class="giant-editorial-title">
+              NOT JUST<br>
+              A <span class="text-gold">BURGER.</span><br>
+              AN<br>
+              EXPERIENCE.
+            </h1>
+            <p class="hero-desc">
+              Engineered with precision, curated with dedication. Scroll down to disassemble and explore the structural craftsmanship of the perfect bite.
+            </p>
+            <div class="intro-cta-wrap">
+              <a href="#" class="btn-luxury magnetic btn-primary">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">BUILD YOURS</span>
+              </a>
+              <a href="#" class="btn-luxury magnetic btn-secondary">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">WATCH CRAFTSMANSHIP</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Exploded View Ingredient Showcase Panels (Initially hidden) -->
+          <div class="ingredient-panels-container" id="ingredient-panels-container">
+            
+            <!-- Panel 1: Top Bun -->
+            <div class="ingredient-panel" data-index="0">
+              <span class="panel-num font-mono text-gold">01 // TOP Bun</span>
+              <h3 class="panel-title font-display">BRIOCHE BUN</h3>
+              <p class="panel-desc">48-hour fermented wild yeast, baked to a golden crust, brushed with organic butter, and sprinkled with toasted sesame seeds.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">YEAST</span><span class="val text-gold">48H FERMENTED</span></div>
+                <div class="spec-line"><span class="lbl">TOPPING</span><span class="val text-gold">SESAME BLEND</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Lettuce -->
+            <div class="ingredient-panel" data-index="1">
+              <span class="panel-num font-mono text-gold">02 // GREEN BALANCE</span>
+              <h3 class="panel-title font-display">CRISPY LETTUCE</h3>
+              <p class="panel-desc">Hand-picked organic green leaf lettuce, washed in ice baths to lock in crunchiness and mineral freshness.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">CRUNCH INDEX</span><span class="val text-gold">MAXIMUM</span></div>
+                <div class="spec-line"><span class="lbl">TEMP</span><span class="val text-gold">ICE-CHILLED</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Tomato -->
+            <div class="ingredient-panel" data-index="2">
+              <span class="panel-num font-mono text-gold">03 // ACIDITY CONTROL</span>
+              <h3 class="panel-title font-display">VINE TOMATOES</h3>
+              <p class="panel-desc">Thick, sweet slices of vine-ripened greenhouse beefsteak tomatoes, selected at peak maturity.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">ORIGIN</span><span class="val text-gold">LOCAL GREENHOUSE</span></div>
+                <div class="spec-line"><span class="lbl">CUT</span><span class="val text-gold">6MM PARALLEL</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Onion -->
+            <div class="ingredient-panel" data-index="3">
+              <span class="panel-num font-mono text-gold">04 // SHARP CONTRAST</span>
+              <h3 class="panel-title font-display">SWEET RED ONIONS</h3>
+              <p class="panel-desc">Crispy sweet red onion rings, providing a fresh sharp note that contrasts the rich cheese and meat.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">TYPE</span><span class="val text-gold">RED SWEET</span></div>
+                <div class="spec-line"><span class="lbl">TEMP</span><span class="val text-gold">ROOM AMBIENT</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 5: Pickles -->
+            <div class="ingredient-panel" data-index="4">
+              <span class="panel-num font-mono text-gold">05 // BRINE PROFILE</span>
+              <h3 class="panel-title font-display">GHERKIN PICKLES</h3>
+              <p class="panel-desc">Thinly sliced cucumbers slow-brined in organic sea salt, dill, garlic, and wild vinegar.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">BRINE TYPE</span><span class="val text-gold">DILL & GARLIC</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 6: Bacon -->
+            <div class="ingredient-panel" data-index="5">
+              <span class="panel-num font-mono text-gold">06 // SMOKED CRUNCH</span>
+              <h3 class="panel-title font-display">APPLEWOOD BACON</h3>
+              <p class="panel-desc">Double-smoked thick-cut pork belly strips, cured for 12 hours and baked to a perfect crispy crunch.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">SMOKE TYPE</span><span class="val text-gold">APPLEWOOD CHIPS</span></div>
+                <div class="spec-line"><span class="lbl">CURE</span><span class="val text-gold">12 HOURS DRY</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 7: Cheddar -->
+            <div class="ingredient-panel" data-index="6">
+              <span class="panel-num font-mono text-gold">07 // DAIRY CORE</span>
+              <h3 class="panel-title font-display">AGED CHEDDAR</h3>
+              <p class="panel-desc">Melted Wisconsin sharp cheddar cheese, natural stretches connecting the burger elements as they separate.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">ORIGIN</span><span class="val text-gold">WISCONSIN DAIRIES</span></div>
+                <div class="spec-line"><span class="lbl">AGING</span><span class="val text-gold">180 DAYS</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 8: Angus Beef -->
+            <div class="ingredient-panel" data-index="7">
+              <span class="panel-num font-mono text-gold">08 // PRIME UMAMI</span>
+              <h3 class="panel-title font-display">ANGUS BEEF</h3>
+              <p class="panel-desc">Two flame-grilled Angus patties. 28-day dry-aged, seasoned with sea salt and black pepper.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">BEEF TYPE</span><span class="val text-gold">100% ANGUS</span></div>
+                <div class="spec-line"><span class="lbl">PROCESS</span><span class="val text-gold">DRY-AGED 28D</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 9: Sauce -->
+            <div class="ingredient-panel" data-index="8">
+              <span class="panel-num font-mono text-gold">09 // EMULSION BASE</span>
+              <h3 class="panel-title font-display">CRAFT SAUCE</h3>
+              <p class="panel-desc">A rich, smoky emulsion of egg yolk, brown mustard, smoked paprika, and sweet organic relish.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">EMULSION</span><span class="val text-gold">PAPRIKA & MUSTARD</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 10: Bottom Bun -->
+            <div class="ingredient-panel" data-index="9">
+              <span class="panel-num font-mono text-gold">10 // BASEMENT</span>
+              <h3 class="panel-title font-display">BOTTOM BUN</h3>
+              <p class="panel-desc">Heavily toasted bottom bun base, providing a sturdy, heat-insulating structural foundation.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">TOAST TIME</span><span class="val text-gold">45 SECONDS</span></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Side: Sticky Canvas (Biased to Center-Right) -->
+        <div class="hero-canvas-panel">
+          <div class="canvas-viewport">
+            <canvas id="burger-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Floating UI Accessories -->
+        <!-- Page Indicator & Telemetry values -->
+        <div class="telemetry-bar font-mono">
+          <div class="tel-item"><span class="lbl">STAGE:</span> <span class="val text-gold" id="telemetry-stage">01 // INTRO</span></div>
+          <div class="tel-item"><span class="lbl">HEIGHT:</span> <span class="val text-gold" id="telemetry-height">0.00m</span></div>
+        </div>
+
+        <div class="page-number-hud font-mono">
+          <span id="active-page-num" class="text-gold">01</span> // <span class="total-pages">05</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COFFEE SECTION with Exploded Coffee Canvas Scrubbing -->
+    <div class="hero-burger-scroll-container" id="coffee-scroll-container">
+      <div class="hero-sticky-wrapper">
+        
+        <!-- Left Side: Editorial Typography & Coffee Ingredient Panels -->
+        <div class="hero-content-panel">
+          
+          <!-- Opening Scene Coffee Headline -->
+          <div class="intro-headline-wrap" id="coffee-intro-headline">
+            <div class="story-tag font-mono text-gold">UNVEILING CODE 002 // SPECIALTY COFFEE</div>
+            <h1 class="giant-editorial-title">
+              CRAFTED<br>
+              ONE CUP<br>
+              AT A <span class="text-gold">TIME.</span>
+            </h1>
+            <p class="hero-desc">
+              Every cup begins with exceptional beans and uncompromising craftsmanship. Scroll down to discover the details.
+            </p>
+            <div class="intro-cta-wrap">
+              <a href="#" class="btn-luxury magnetic btn-primary">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">ORDER COFFEE</span>
+              </a>
+              <a href="#" class="btn-luxury magnetic btn-secondary">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">EXPLORE CRAFT</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Exploded Coffee View Ingredient Showcase Panels -->
+          <div class="ingredient-panels-container" id="coffee-panels-container">
+            
+            <!-- Panel 1: Espresso Extraction -->
+            <div class="ingredient-panel" data-coffee-index="0">
+              <span class="panel-num font-mono text-gold">01 // ESSENCE</span>
+              <h3 class="panel-title font-display">ESPRESSO</h3>
+              <p class="panel-desc">Slow-extracted espresso from carefully selected single-origin beans delivers bold flavor with exceptional balance.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">EXTRACTION</span><span class="val text-gold">SLOW PRESSURE</span></div>
+                <div class="spec-line"><span class="lbl">BEANS</span><span class="val text-gold">SINGLE-ORIGIN</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Steamed Milk -->
+            <div class="ingredient-panel" data-coffee-index="1">
+              <span class="panel-num font-mono text-gold">02 // TEXTURE</span>
+              <h3 class="panel-title font-display">STEAMED MILK</h3>
+              <p class="panel-desc">Micro-foam steamed to silky perfection creates a rich, velvety mouthfeel in every cup.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">STEAM PROFILE</span><span class="val text-gold">MICRO-FOAM</span></div>
+                <div class="spec-line"><span class="lbl">MOUTHFEEL</span><span class="val text-gold">SILKY & VELVETY</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Foam, Chocolate & Beans -->
+            <div class="ingredient-panel" data-coffee-index="2">
+              <span class="panel-num font-mono text-gold">03 // FINISHING</span>
+              <h3 class="panel-title font-display">COCOA DUST</h3>
+              <p class="panel-desc">Fresh cocoa, roasted beans, and handcrafted finishing touches transform every coffee into an experience.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">TOPPING</span><span class="val text-gold">DARK COCOA DUST</span></div>
+                <div class="spec-line"><span class="lbl">AROMA EFFECT</span><span class="val text-gold">SOFT CHOCOLATE</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Hardware Breakdown / Exploded Labels -->
+            <div class="ingredient-panel" data-coffee-index="3">
+              <span class="panel-num font-mono text-gold">04 // SCHEMATIC</span>
+              <h3 class="panel-title font-display">AUREA SHIFT</h3>
+              <p class="panel-desc">Apple hardware presentation style exploded view showing structural balance of every ingredient in absolute sync.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">LAYERS</span><span class="val text-gold">BEANS, CUP, FOAM, MILK</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 5: Served with Passion -->
+            <div class="ingredient-panel" data-coffee-index="4">
+              <span class="panel-num font-mono text-gold">05 // EXPERIENCE</span>
+              <h3 class="panel-title font-display">SERVED PASSION</h3>
+              <p class="panel-desc">Discover the finished premium ceramic presentation. An exceptional cup of coffee ready for tasting.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">PRESENTATION</span><span class="val text-gold">AUREA SPECIALTY</span></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Side: Sticky Coffee Canvas -->
+        <div class="hero-canvas-panel">
+          <div class="canvas-viewport">
+            <canvas id="coffee-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Floating UI Accessories (Coffee Section) -->
+        <div class="telemetry-bar font-mono" id="coffee-telemetry-bar">
+          <div class="tel-item"><span class="lbl">STAGE:</span> <span class="val text-gold" id="coffee-stage">01 // COFFEE INTRO</span></div>
+          <div class="tel-item"><span class="lbl">HEIGHT:</span> <span class="val text-gold" id="coffee-height">0.00m</span></div>
+        </div>
+
+        <div class="page-number-hud font-mono" id="coffee-page-number-hud">
+          <span id="coffee-page-num" class="text-gold">01</span> // <span class="total-pages">05</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEAFOOD SECTION with Exploded Ocean-to-Table Canvas Scrubbing -->
+    <div class="hero-burger-scroll-container" id="sea-scroll-container">
+      <div class="hero-sticky-wrapper">
+        
+        <!-- Left Side: Editorial Typography & Seafood Storytelling Panels -->
+        <div class="hero-content-panel">
+          
+          <!-- Opening Scene Seafood Headline -->
+          <div class="intro-headline-wrap" id="sea-intro-headline">
+            <div class="story-tag font-mono text-gold">MICHELIN INSPIRED SEAFOOD EXPERIENCE</div>
+            <h1 class="giant-editorial-title">
+              FROM OCEAN<br>
+              TO <span class="text-gold">PERFECTION</span>
+            </h1>
+            <p class="hero-desc">
+              Experience seafood the way nature intended. Freshly sourced every morning, crafted by passionate chefs, and served with elegance.
+            </p>
+            <div class="intro-cta-wrap">
+              <a href="#" class="btn-luxury magnetic btn-primary" id="sea-reserve-btn">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">RESERVE YOUR TABLE</span>
+              </a>
+              <a href="#" class="btn-luxury magnetic btn-secondary">
+                <span class="btn-border-glow"></span>
+                <span class="btn-text">EXPLORE OUR MENU</span>
+              </a>
+            </div>
+            
+            <!-- Animated Scroll Indicator -->
+            <div class="sea-scroll-indicator font-mono">
+              <span class="mouse-icon"><span class="wheel"></span></span>
+              <span>SCROLL TO BEGIN</span>
+            </div>
+          </div>
+
+          <!-- Exploded Sea View Ingredient Showcase Panels -->
+          <div class="ingredient-panels-container" id="sea-panels-container">
+            
+            <!-- Panel 1: Deep Ocean -->
+            <div class="ingredient-panel" data-sea-index="0">
+              <span class="panel-num font-mono text-gold">01 // THE OCEAN</span>
+              <h3 class="panel-title font-display">PRISTINE DEPTHS</h3>
+              <p class="panel-desc">Prinstine deep sea ecosystems. Magnificient sea bass swimming beneath the crystal clear surface, bathed in sunlight.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">ORIGIN</span><span class="val text-gold">ATLANTIC REEFS</span></div>
+                <div class="spec-line"><span class="lbl">DEPTH</span><span class="val text-gold">15-30 METERS</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Fresh Catch -->
+            <div class="ingredient-panel" data-sea-index="1">
+              <span class="panel-num font-mono text-gold">02 // FRESH CATCH</span>
+              <h3 class="panel-title font-display">DAILY SOURCING</h3>
+              <p class="panel-desc">Line-caught specialty selection, rushed to our kitchens immediately to preserve natural ocean freshness.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">SELECT TYPE</span><span class="val text-gold">SILVER SEA BASS</span></div>
+                <div class="spec-line"><span class="lbl">DELIVERY</span><span class="val text-gold">SAME DAY (AM)</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Culinary Craft -->
+            <div class="ingredient-panel" data-sea-index="2">
+              <span class="panel-num font-mono text-gold">03 // MICHELIN KITCHEN</span>
+              <h3 class="panel-title font-display">CHEF'S HAND</h3>
+              <p class="panel-desc">Expert temperature control and precise preparation methods preserve delicate muscle textures.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">TECHNIQUE</span><span class="val text-gold">SLOW SEARING</span></div>
+                <div class="spec-line"><span class="lbl">SEASONING</span><span class="val text-gold">SEA KELP SALTS</span></div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Served Plating -->
+            <div class="ingredient-panel" data-sea-index="3">
+              <span class="panel-num font-mono text-gold">04 // FINE DINING</span>
+              <h3 class="panel-title font-display">LUXURY SERVING</h3>
+              <p class="panel-desc">An unforgettable sensory presentation. Experience the rich ocean aromas and elegant dining aesthetics.</p>
+              <div class="panel-specs font-mono">
+                <div class="spec-line"><span class="lbl">PLATES</span><span class="val text-gold">MICHELIN PLATING</span></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Side: Sticky Sea Canvas -->
+        <div class="hero-canvas-panel">
+          <div class="canvas-viewport">
+            <canvas id="sea-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Floating UI Accessories (Seafood Section) -->
+        <div class="telemetry-bar font-mono" id="sea-telemetry-bar">
+          <div class="tel-item"><span class="lbl">STAGE:</span> <span class="val text-gold" id="sea-stage">01 // OCEANDEPTHS</span></div>
+          <div class="tel-item"><span class="lbl">TEMP:</span> <span class="val text-gold" id="sea-temp">14°C</span></div>
+        </div>
+
+        <div class="page-number-hud font-mono" id="sea-page-number-hud">
+          <span id="sea-page-num" class="text-gold">01</span> // <span class="total-pages">04</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer at the end of the entire scrollytelling path -->
+    <footer class="luxury-footer font-mono">
+      <div>© 2026 CRAFTSMAN GOURMET SYSTEMS</div>
+      <div>CLASSIFIED SEAFOOD CODES // ALL RIGHTS RESERVED</div>
+    </footer>
+
+  </main>
+
+  <!-- GSAP & Lenis CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</body>
+</html>
